@@ -4,7 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
+import kotlinx.android.synthetic.main.my_text_view.view.*
+import android.os.Bundle
+import android.app.Activity
+import kotlin.math.log
+
 
 class MyAdapter(private val dataTemp: Array<String>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -39,6 +45,18 @@ class MyAdapter(private val dataTemp: Array<String>) :
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.view.findViewById<TextView>(R.id.tvToDoItem).text = dataTemp[position]
+
+//        var checkBox = holder.view.findViewById(R.id.cbToDoChecked) as CheckBox
+//
+//        val onClickListenerChangeSettings = View.OnClickListener { v ->
+//            when (v.id) {
+//                R.id.cbToDoChecked -> log("Checked")
+//            }
+//        }
+//        checkBox.setOnClickListener(View -> )
+//        if (checkBox.isChecked) {
+//            checkBox.isChecked = false
+//        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -49,4 +67,19 @@ class MyAdapter(private val dataTemp: Array<String>) :
 
 class CustomViewHolder(v: View): RecyclerView.ViewHolder(v){
 
+}
+
+private val onClickListenerChangeSettings = View.OnClickListener { v ->
+    when (v.id) {
+        R.id.checkBox -> etDurationCurrent.setText("3")
+        R.id.btnDuration5mins -> etDurationCurrent.setText("5")
+        R.id.btnDuration10mins -> etDurationCurrent.setText("10")
+        R.id.btnDuration20mins -> etDurationCurrent.setText("20")
+        R.id.btnDuration30mins -> etDurationCurrent.setText("30")
+        R.id.btnLength4secs -> etLengthCurrent.setText("4")
+        R.id.btnLength5secs -> etLengthCurrent.setText("5")
+        R.id.btnLength6secs -> etLengthCurrent.setText("6")
+        R.id.btnLength7secs -> etLengthCurrent.setText("7")
+        R.id.btnLength8secs -> etLengthCurrent.setText("8")
+    }
 }
